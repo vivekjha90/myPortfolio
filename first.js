@@ -1,38 +1,26 @@
-function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
-  }
-  let btn=document.querySelector("#btn");
-let currMode="light";
-btn.addEventListener("click",() =>{
- 
-  if(currMode==="light"){
-    currMode="dark";
-    document.querySelector("body").style.backgroundColor="black";
-    document.querySelector("body").style.color="white";
-    document.querySelector("#detail").style.color="white";
-    document.querySelector("#edu1").style.backgroundColor="white";
-    document.querySelector("#edu1").style.color="black";
-    document.querySelector("#edu2").style.backgroundColor="white";
-    document.querySelector("#edu2").style.color="black";
-    document.querySelector("#edu3").style.backgroundColor="white";
-    document.querySelector("#edu3").style.color="black";
-  }
-  else{
-    currMode="light";
-    document.querySelector("body").style.backgroundColor="white";
-    document.querySelector("#detail").style.color="black";
-    document.querySelector("body").style.color="black";
-    document.querySelector("#edu1").style.backgroundColor="black";
-    document.querySelector("#edu1").style.color="white";
-    document.querySelector("#edu2").style.backgroundColor="black";
-    document.querySelector("#edu2").style.color="white";
-    document.querySelector("#edu3").style.backgroundColor="black";
-    document.querySelector("#edu3").style.color="white";
-  }
+// Toggle Navigation on Mobile
 
-})
+function toggleNav() {
+  const nav = document.getElementById("myTopnav");
+  nav.classList.toggle("responsive");
+}
+
+// Toggle Light/Dark Mode
+const btn = document.getElementById("btn");
+let isDark = false;
+
+btn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  isDark = !isDark;
+  btn.innerHTML = isDark ? `<i class="ri-moon-line"></i>` : `<i class="ri-sun-line"></i>`;
+});
+
+// Smooth Scroll for #backtotop
+// Back to top button smooth scroll
+document.getElementById("backtotop")?.addEventListener("click", function (e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
