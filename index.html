@@ -8,6 +8,8 @@
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-...redacted..."
     crossorigin="anonymous"
     referrerpolicy="no-referrer">
@@ -31,21 +33,28 @@
     <a href="#about">About</a>
     <a href="#project">Projects</a>
     <a href="#myskills">Skills</a>
-    <a href="#parent">Education</a>
+    <a href="#education">Education</a>
     <a href="#resume">Resume</a>
     <a href="#last">Contact</a>
+    <button id="themeToggle" class="theme-toggle">
+  🌙
+</button>
   </div>
 </nav>
 
 
 
+
   <!-- Theme Toggle Button -->
+   
   <!-- <button id="btn"><i class="ri-sun-line"></i></button> -->
 
   <!-- About Section -->
+   
   <section class="section" id="about">
+    
     <h1>About Me</h1>
-    <h2><span>Hello!</span> I'm Vivek Kumar Jha.</h2>
+    <h2><span style="color: red;">Hello!</span> I'm Vivek Kumar Jha.</h2>
     <i class="ri-hand"></i>
     <img src="linkedin pic.jpeg" alt="Profile" class="profile-img"/>
     <p id="detail"> I am passionate Software engineer in problem-solving and algorithmic thinking. I love to explore
@@ -80,6 +89,24 @@
   </section>
 
   <!-- Skills, Education, Resume, Footer – UNCHANGED HERE -->
+  <section id="myskills" class="skills-section">
+  <h2>My Skills</h2>
+  <div class="skills-grid">
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"><p>C++</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"><p>Java</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><p>JavaScript</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><p>Python</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="DSA"><p>DSA</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"><p>Node.js</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><p>React</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap"><p>Bootstrap</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><p>HTML</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><p>CSS</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL"><p>SQL</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"><p>MongoDB</p></div>
+  </div>
+</section>
+
   <!-- You’ll retain those sections with just improved CSS for responsiveness -->
 <section id="education">
   <h2 class="section-heading">Education</h2>
@@ -116,7 +143,18 @@
 </div>
 
 <!-- Contact Section -->
-<h2 class="section-title">Contact</h2>
+<!-- <h2 class="section-title">Contact</h2> -->
+ <section id="last" class="contact-section">
+  <h2>Contact Me</h2>
+  <form class="contact-form" id="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <input type="text" name="subject" placeholder="Subject" />
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</section>
+
 
 <!-- Thank You Note -->
 <h2 id="last">THANK YOU SO MUCH!</h2>
@@ -135,5 +173,32 @@
 
   <!-- Scripts -->
   <script src="first.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("7PUJHuUNPeFu57RFn"); // ✅ Your public key
+  })();
+
+  const form = document.getElementById("contact-form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_bmnvclb", "template_j6t4658", this)
+      .then(() => {
+        alert("✅ Message sent successfully!");
+        form.reset();
+      }, (error) => {
+        alert("❌ Failed to send message. Please try again.");
+        console.error("EmailJS Error:", error);
+      });
+  });
+</script>
+
 </body>
 </html>
+
+
+
+<!-- //a form to add in the contact 
+// dark mode feature -->

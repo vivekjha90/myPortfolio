@@ -6,14 +6,19 @@ function toggleNav() {
 }
 
 // Toggle Light/Dark Mode
-const btn = document.getElementById("btn");
-let isDark = false;
+const themeToggle = document.getElementById('themeToggle');
 
-btn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  isDark = !isDark;
-  btn.innerHTML = isDark ? `<i class="ri-moon-line"></i>` : `<i class="ri-sun-line"></i>`;
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+
+  // Toggle icon
+  if (document.body.classList.contains('dark-mode')) {
+    themeToggle.textContent = '☀️'; // Light mode icon
+  } else {
+    themeToggle.textContent = '🌙'; // Dark mode icon
+  }
 });
+
 
 // Smooth Scroll for #backtotop
 // Back to top button smooth scroll
