@@ -5,19 +5,7 @@ function toggleNav() {
   nav.classList.toggle("responsive");
 }
 
-// Toggle Light/Dark Mode
-const themeToggle = document.getElementById('themeToggle');
 
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-
-  // Toggle icon
-  if (document.body.classList.contains('dark-mode')) {
-    themeToggle.textContent = '☀️'; // Light mode icon
-  } else {
-    themeToggle.textContent = '🌙'; // Dark mode icon
-  }
-});
 
 
 // Smooth Scroll for #backtotop
@@ -28,4 +16,36 @@ document.getElementById("backtotop")?.addEventListener("click", function (e) {
     top: 0,
     behavior: "smooth",
   });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const textElement = document.getElementById("text");
+
+  const texts = [
+    "Engineering ideas into reality",
+    "I specialize in MERN Stack",
+   "Love to explore and evolve"
+  ];
+
+  let count = 0;
+  let index = 0;
+
+  function type() {
+    if (count === texts.length) count = 0;
+
+    const currentText = texts[count];
+    textElement.textContent = currentText.slice(0, ++index);
+
+    if (index === currentText.length) {
+      setTimeout(() => {
+        index = 0;
+        count++;
+      }, 1500);
+    }
+
+    setTimeout(type, 80);
+  }
+
+  type();
 });
