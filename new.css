@@ -132,6 +132,7 @@ img {
 
 /* ========== Profile ========== */
 .profile-img {
+  
   width: 160px;
   height: 160px;
   border-radius: 50%;
@@ -487,6 +488,7 @@ body.dark-mode {
   background: linear-gradient(90deg, #00c6ff, #0072ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+ 
 }
 
 .typewriter {
